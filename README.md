@@ -1,11 +1,11 @@
 # About Monolit
-Данная технология позволяет быстро писать монолитные приложения, с серверной частью. Суть в том что сервер и клиент находятся на одном устройстве, в связи с чем отпадает необходимость в наличии физического сервера, что способствует понижению порога входа в веб-разработку. Исходя из этого, любой инди-разработчик сможет создать полноценное приложение с серверной частью, не делая никаких вложений в проект и не неся затрат на аренду хостинга.
+This technology allows for rapid development of monolithic applications with a server-side component. The core idea is that the server and client reside on the same device, eliminating the need for a physical server. This lowers the barrier to entry in web development. Consequently, any indie developer can create a full-fledged application with a server-side component without any initial investment or hosting rental costs.
 
 # How to install Monolit
-Библиотеку можно установить с помощью встроенного в пайтон, пакетного менеджера pip. Просто пропишите в терминале 'pip install monolit_local_app', и на ваш компьютер автоматически будут скачаны все нужные пакеты.
+The library can be installed using Python’s built-in package manager, pip. Simply type "pip install monolit_local_app" in your terminal, and all necessary packages will be automatically downloaded to your computer.
 
 # How to use Monolit
-Для работы приложения monolit достаточно импортировать Monolit (import monolit_local_app as ml). Создать класс в main.py, указать полный полный путь до папки 'www' (в ней или в дочерних паках должен содержаться файл 'index.html', иначе произойдет ошибка). Также внутри класса необходимо создать метод 'process_request', который принимает аргумент 'request : ml.Request'. Когда на адрес '127.0.0.1:5000/process' будет приходить http запрос, функция будет срабатывать и возвращать ответ.
+To run a Monolit application, you need to import Monolit (e.g., import monolit_local_app as ml). Then, create a class in your main.py file. Specify the full path to the "www" folder (which must contain ‘index.html’ either directly or in a subfolder; otherwise, an error will occur). Inside this class, you must also create a method named "process_request", which accepts an argument request: ml.Request. When an HTTP request arrives at the address "127.0.0.1:5000/process", this function will be triggered and return a response.
 
 main.py:
 ```python
@@ -28,12 +28,12 @@ if __name__ == "__main__":
     ml.host(Main)
 ```
 
-Но этот код не является самим приложением. Данный скрипт только хостит приложение по адресу '127.0.0.1:5000', но не запускает его. Для запуска, необходимо самостоятельно заходить в браузер, вбивать в строку 127.0.0.1:5000. Так как для пользователя это будет дико неудобно, лучше вызывать main.py из командной строки, путем другого пайтон скрипта.
+However, this code does not constitute the application itself. This script merely hosts the application at the address "127.0.0.1:5000/www/index.html", but it does not launch it. To launch it, you must manually open your browser and enter "127.0.0.1:5000/www/index.html" in the address bar. Since this would be highly inconvenient for the user, it’s better to call main.py from the command line using another Python script.
 
 app.py:
 ```python
 import os
 import webbrowser
-webbrowser.open("http://127.0.0.1:5000/www/index.html")
+webbrowser.open("127.0.0.1:5000\www\index.html")
 os.system("python main.py")
 ```
