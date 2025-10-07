@@ -5,7 +5,7 @@ This technology allows for rapid development of monolithic applications with a s
 The library can be installed using Python’s built-in package manager, pip. Simply type "pip install monolit_local_app" in your terminal, and all necessary packages will be automatically downloaded to your computer.
 
 # How to use Monolit
-To run a Monolit application, you need to import Monolit (e.g., import monolit_local_app as ml). Then, create a class in your main.py file. Specify the full path to the "www" folder (which must contain ‘index.html’ either directly or in a subfolder; otherwise, an error will occur). Inside this class, you must also create a method named "process_request", which accepts an argument request: ml.Request. When an HTTP request arrives at the address "127.0.0.1:5000/process", this function will be triggered and return a response.
+To run a Monolit application, you need to import Monolit (e.g., import monolit_local_app as ml). Then, create a class in your main.py file. Specify the full path to the "www" folder (which must contain "index.html" either directly or in a subfolder; otherwise, an error will occur). Inside this class, you must also create a method named "process_request", which accepts an argument request: ml.Request. When an HTTP request arrives at the address "http://127.0.0.1:5000/process", this function will be triggered and return a response.
 
 main.py:
 ```python
@@ -28,12 +28,12 @@ if __name__ == "__main__":
     ml.host(Main)
 ```
 
-However, this code does not constitute the application itself. This script merely hosts the application at the address "127.0.0.1:5000/www/index.html", but it does not launch it. To launch it, you must manually open your browser and enter "127.0.0.1:5000/www/index.html" in the address bar. Since this would be highly inconvenient for the user, it’s better to call main.py from the command line using another Python script.
+However, this code does not constitute the application itself. This script merely hosts the application at the address "http://127.0.0.1:5000/www/index.html", but it does not launch it. To launch it, you must manually open your browser and enter "http://127.0.0.1:5000/www/index.html" in the address bar. Since this would be highly inconvenient for the user, it’s better to call main.py from the command line using another Python script.
 
 app.py:
 ```python
 import os
 import webbrowser
-webbrowser.open("127.0.0.1:5000\www\index.html")
+webbrowser.open("http:\\127.0.0.1:5000\www\index.html")
 os.system("python main.py")
 ```
