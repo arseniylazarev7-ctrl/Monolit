@@ -34,6 +34,6 @@ app.py:
 ```python
 import os
 import webbrowser
-webbrowser.open("http://127.0.0.1:5000")
+webbrowser.open("http://127.0.0.1:5000/www/index.html")
 os.system("python main.py")
 ```
